@@ -20,7 +20,7 @@ jobs:
     needs: linter-execution
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Run jest tests
         run: npm install jest && npm test
   environment_test_execution:
