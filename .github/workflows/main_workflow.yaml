@@ -2,7 +2,7 @@ name: activityRafa
 on:
   push:
     branches:
-    - nodejs_enviroment_job
+    - nodejs_environment_job
 jobs:
   linter-execution:
     runs-on: ubuntu-latest
