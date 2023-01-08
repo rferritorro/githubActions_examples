@@ -1,13 +1,29 @@
-name: primer-ejemplo
-on: [push]
+name: activity
+on:
+  push:
+    branches:
+      - react_app_deploy
 jobs:
-  linter:
-  runs-on: windows-latest
-   steps:
-     - uses: actions/checkout@v2
-       uses: github/super-linter@v3
-       env:
-        DEFAULT_BRANCH: nodejs_example
-        LINTER_RULES_PATH: /
-	JAVASCRIPT_ES_CONFIG_FILE:.eslintrc.jsn
-	VALIDATE_JAVASCRIPT_ES: true
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm install -D && npm run
+      - uses: actions/upload-artifact@v3
+        with:
+          name: react
+          path: my-react-app/index.js
+  deploy-job:
+    runs-on: ubuntu-latest
+    needs: build-job
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: react
+          path: my-react-app/index.js
+      - uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: 'rafaferridomain.sh'
+          project: '.'
+          login: ${{ secrets.surge_login }}
+          token: ${{ secrets.surge_token }} 

@@ -1,0 +1,19 @@
+{
+  "name": "githubactions_examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sum.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rferritorro/githubActions_examples.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rferritorro/githubActions_examples/issues"
+  },
+  "homepage": "https://github.com/rferritorro/githubActions_examples#readme"
+}
