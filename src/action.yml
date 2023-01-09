@@ -1,0 +1,20 @@
+name: send_telegram_action
+description: "Action encargada de enviar el mensaje"
+inputs:
+  chat_id:
+    description: "Chat de Telegram"
+    required: true
+  token:
+    description: "Token telegram"
+    required: true
+  user:
+    description: "User"
+    required: true
+outputs:
+  msg:
+    description: "Mensaje de respuesta"
+runs:
+  using: "node12"
+  main: "./telegram.js"
+
+# Si se realiza la compilación se usa dist/
